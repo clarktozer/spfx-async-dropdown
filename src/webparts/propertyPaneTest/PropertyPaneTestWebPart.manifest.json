@@ -1,0 +1,24 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+    "id": "e9a395fd-121c-475b-b737-ccddb0ef8dd9",
+    "alias": "PropertyPaneTestWebPart",
+    "componentType": "WebPart",
+    "version": "*",
+    "manifestVersion": 2,
+    "requiresCustomScript": false,
+    "supportedHosts": ["SharePointWebPart"],
+    "preconfiguredEntries": [
+        {
+            "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+            "group": { "default": "Other" },
+            "title": { "default": "Property Pane Test" },
+            "description": {
+                "default": "Test webpart for the property control"
+            },
+            "officeFabricIconFontName": "Page",
+            "properties": {
+                "list": null
+            }
+        }
+    ]
+}

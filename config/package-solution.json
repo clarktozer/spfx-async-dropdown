@@ -1,0 +1,14 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+    "solution": {
+        "name": "spfx-async-dropdown-client-side-solution",
+        "id": "99bde772-c870-47ae-9bd7-9d21246ce3f6",
+        "version": "1.0.0.0",
+        "includeClientSideAssets": true,
+        "skipFeatureDeployment": true,
+        "isDomainIsolated": false
+    },
+    "paths": {
+        "zippedPackage": "solution/spfx-async-dropdown.sppkg"
+    }
+}

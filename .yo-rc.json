@@ -1,0 +1,12 @@
+{
+    "@microsoft/generator-sharepoint": {
+        "isCreatingSolution": true,
+        "environment": "spo",
+        "version": "1.9.1",
+        "libraryName": "spfx-async-dropdown",
+        "libraryId": "99bde772-c870-47ae-9bd7-9d21246ce3f6",
+        "packageManager": "npm",
+        "isDomainIsolated": false,
+        "componentType": "webpart"
+    }
+}
