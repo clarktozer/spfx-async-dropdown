@@ -1,7 +1,7 @@
 {
     "name": "spfx-async-dropdown",
     "description": "Asynchronous dropdown component for the SPFx property pane",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "main": "lib/index.js",
     "engines": {
@@ -16,6 +16,7 @@
     ],
     "scripts": {
         "build": "gulp clean && gulp bundle && gulp package-solution",
+        "build-prod": "gulp clean && gulp bundle --ship && gulp package-solution --ship",
         "clean": "gulp clean",
         "serve": "gulp serve"
     },

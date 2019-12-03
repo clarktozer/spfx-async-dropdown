@@ -23,3 +23,4 @@ tsconfig.json
 yarn.lock
 tslint.json
 .prettierrc
+*.map
