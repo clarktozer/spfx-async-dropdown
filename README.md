@@ -1,6 +1,7 @@
 ## spfx-async-dropdown
 
-<img alt="GitHub Actions status" src="https://github.com/clarktozer/spfx-async-dropdown/workflows/Build/badge.svg">
+<span><img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/clarktozer/spfx-async-dropdown/Build"></span>
+<span><img alt="npm" src="https://img.shields.io/npm/v/spfx-async-dropdown"></span>
 
 Asynchronous dropdown component for the SPFx property pane
 
