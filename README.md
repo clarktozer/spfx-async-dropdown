@@ -12,6 +12,8 @@ npm install spfx-async-dropdown
 
 ## Examples
 
+#### Get lists that are in the root web
+
 ```bash
 new PropertyPaneAsyncDropdown("list", {
     label: "List",
