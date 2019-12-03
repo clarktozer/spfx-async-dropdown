@@ -1,5 +1,7 @@
 ## spfx-async-dropdown
 
+<img alt="GitHub Actions status" src="https://github.com/clarktozer/spfx-async-dropdown/workflows/Build/badge.svg">
+
 Asynchronous drop down component for the SPFx property pane
 
 ## Installation
