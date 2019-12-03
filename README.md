@@ -2,7 +2,7 @@
 
 <img alt="GitHub Actions status" src="https://github.com/clarktozer/spfx-async-dropdown/workflows/Build/badge.svg">
 
-Asynchronous drop down component for the SPFx property pane
+Asynchronous dropdown component for the SPFx property pane
 
 ## Installation
 
@@ -38,13 +38,13 @@ new PropertyPaneAsyncDropdown("list", {
 
 ## Props
 
-| Prop                              |       Type       | 
-| :-------------------------------- | :--------------: | 
-| label<br/>_(required)_            |      string      | 
-| onLoad<br/>_(required)_           |       () => Promise<IDropdownOption[]>       |
-| onPropertyChange<br/>_(required)_ |       (property: string, newValue: any) => void       |
-| selectedKey<br/>_(required)_      | string or number |
-| disabled                          |     boolean      |
-| required                          |     boolean      |
-| tooltip                           |      IToolTip      |
-| placeholder                       |     boolean      |
+| Prop                              |                   Type                    |
+| :-------------------------------- | :---------------------------------------: |
+| label<br/>_(required)_            |                  string                   |
+| onLoad<br/>_(required)_           |     () => Promise<IDropdownOption[]>      |
+| onPropertyChange<br/>_(required)_ | (property: string, newValue: any) => void |
+| selectedKey<br/>_(required)_      |             string or number              |
+| disabled                          |                  boolean                  |
+| required                          |                  boolean                  |
+| tooltip                           |                 IToolTip                  |
+| placeholder                       |                  boolean                  |

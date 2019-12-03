@@ -12,6 +12,7 @@ assets
 dist
 docs
 scripts
+.github
 
 # Files
 *.csproj
