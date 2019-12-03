@@ -35,7 +35,8 @@ new PropertyPaneAsyncDropdown("list", {
     tooltip: {
         content: "Testing Tooltip",
         iconName: "List"
-    }
+    },
+    placeholder: "Select an item..."
 })
 ```
 
