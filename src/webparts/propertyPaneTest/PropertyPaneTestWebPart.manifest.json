@@ -17,7 +17,9 @@
             },
             "officeFabricIconFontName": "Page",
             "properties": {
-                "list": null
+                "list1": null,
+                "list2": null,
+                "list3": null
             }
         }
     ]

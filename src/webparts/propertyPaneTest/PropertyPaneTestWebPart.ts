@@ -1,5 +1,5 @@
 import { Version } from "@microsoft/sp-core-library";
-import { get, update } from "@microsoft/sp-lodash-subset";
+import { get, isEmpty, update } from "@microsoft/sp-lodash-subset";
 import { BaseClientSideWebPart, IPropertyPaneConfiguration } from "@microsoft/sp-webpart-base";
 import { IDropdownOption } from "office-ui-fabric-react/lib/Dropdown";
 import * as React from "react";
@@ -14,6 +14,8 @@ export interface IPropertyPaneTestWebPartProps {
 }
 
 export default class PropertyPaneTestWebPart extends BaseClientSideWebPart<IPropertyPaneTestWebPartProps> {
+    private listPicker: PropertyPaneAsyncDropdown;
+
     public render(): void {
         const element: React.ReactElement<IPropertyPaneTestWebPartProps> = React.createElement(PropertyPaneTest, this.properties);
 
@@ -32,10 +34,46 @@ export default class PropertyPaneTestWebPart extends BaseClientSideWebPart<IProp
         const oldValue = get(this.properties, property);
         update(this.properties, property, () => newValue);
         this.onPropertyPaneFieldChanged(property, oldValue, newValue);
+        if (property === "list1") {
+            this.resetListTitlePropertyPane();
+        }
         this.render();
     };
 
+    private resetListTitlePropertyPane = () => {
+        this.properties.list2 = null;
+        update(this.properties, "list2", () => this.properties.list2);
+        this.listPicker.properties.selectedKey = "";
+        this.listPicker.properties.disabled = isEmpty(this.properties.list1);
+        this.listPicker.render();
+    };
+
     protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
+        const disabled = isEmpty(this.properties.list1);
+
+        this.listPicker = new PropertyPaneAsyncDropdown("list2", {
+            label: "List 2",
+            onLoad: () =>
+                Promise.resolve<IDropdownOption[]>([
+                    {
+                        key: "Test1",
+                        text: "Test1"
+                    },
+                    {
+                        key: "Test2",
+                        text: "Test2"
+                    },
+                    {
+                        key: "Test3",
+                        text: "Test3"
+                    }
+                ]),
+            onPropertyChange: this.onCustomPropertyChange,
+            selectedKey: this.properties.list2,
+            required: true,
+            disabled
+        });
+
         return {
             pages: [
                 {
@@ -44,49 +82,38 @@ export default class PropertyPaneTestWebPart extends BaseClientSideWebPart<IProp
                             groupFields: [
                                 new PropertyPaneAsyncDropdown("list1", {
                                     label: "List 1",
-                                    onLoad: () =>
-                                        Promise.resolve<IDropdownOption[]>([
-                                            {
-                                                key: "Test1",
-                                                text: "Test1"
-                                            },
-                                            {
-                                                key: "Test2",
-                                                text: "Test2"
-                                            },
-                                            {
-                                                key: "Test3",
-                                                text: "Test3"
-                                            }
-                                        ]),
+                                    onLoad: () => {
+                                        return new Promise(resolve => {
+                                            setTimeout(() => {
+                                                resolve([
+                                                    {
+                                                        key: "",
+                                                        text: "Select an item"
+                                                    },
+                                                    {
+                                                        key: "Test1",
+                                                        text: "Test1"
+                                                    },
+                                                    {
+                                                        key: "Test2",
+                                                        text: "Test2"
+                                                    },
+                                                    {
+                                                        key: "Test3",
+                                                        text: "Test3"
+                                                    }
+                                                ]);
+                                            }, 1000);
+                                        });
+                                    },
                                     onPropertyChange: this.onCustomPropertyChange,
-                                    selectedKey: this.properties.list1,
+                                    selectedKey: this.properties.list1 || "",
                                     required: true,
                                     tooltip: {
                                         content: "Testing Tooltip"
                                     }
                                 }),
-                                new PropertyPaneAsyncDropdown("list2", {
-                                    label: "List 2",
-                                    onLoad: () =>
-                                        Promise.resolve<IDropdownOption[]>([
-                                            {
-                                                key: "Test1",
-                                                text: "Test1"
-                                            },
-                                            {
-                                                key: "Test2",
-                                                text: "Test2"
-                                            },
-                                            {
-                                                key: "Test3",
-                                                text: "Test3"
-                                            }
-                                        ]),
-                                    onPropertyChange: this.onCustomPropertyChange,
-                                    selectedKey: this.properties.list2,
-                                    required: true
-                                }),
+                                this.listPicker,
                                 new PropertyPaneAsyncDropdown("list3", {
                                     label: "List 3",
                                     onLoad: () =>

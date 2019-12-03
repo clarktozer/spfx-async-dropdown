@@ -5,6 +5,8 @@
 
 Asynchronous dropdown component for the SPFx property pane
 
+![Screenshot](./screenshot.gif)
+
 ## Installation
 
 ```bash
@@ -42,13 +44,13 @@ new PropertyPaneAsyncDropdown("list", {
 
 ## Props
 
-| Prop                              |                   Type                    |
-| :-------------------------------- | :---------------------------------------: |
-| label<br/>_(required)_            |                  string                   |
-| onLoad<br/>_(required)_           |     () => Promise<IDropdownOption[]>      |
-| onPropertyChange<br/>_(required)_ | (property: string, newValue: any) => void |
-| selectedKey<br/>_(required)_      |             string or number              |
-| disabled                          |                  boolean                  |
-| required                          |                  boolean                  |
-| tooltip                           |                 IToolTip ({ content: string, iconName: string}). iconName is a [Fabric icon](https://developer.microsoft.com/en-us/fabric#/styles/web/icons)                 |
-| placeholder                       |                  boolean                  |
+| Prop                              |                                                                     Type                                                                     |
+| :-------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------: |
+| label<br/>_(required)_            |                                                                    string                                                                    |
+| onLoad<br/>_(required)_           |                                                       () => Promise<IDropdownOption[]>                                                       |
+| onPropertyChange<br/>_(required)_ |                                                  (property: string, newValue: any) => void                                                   |
+| selectedKey<br/>_(required)_      |                                                               string or number                                                               |
+| disabled                          |                                                                   boolean                                                                    |
+| required                          |                                                                   boolean                                                                    |
+| tooltip                           | IToolTip ({ content: string, iconName: string}). iconName is a [Fabric icon](https://developer.microsoft.com/en-us/fabric#/styles/web/icons) |
+| placeholder                       |                                                                   boolean                                                                    |

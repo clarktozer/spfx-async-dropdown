@@ -1,12 +1,17 @@
 {
     "name": "spfx-async-dropdown",
     "description": "Asynchronous dropdown component for the SPFx property pane",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "license": "MIT",
     "main": "lib/index.js",
     "engines": {
         "node": ">=0.10.0"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/clarktozer/spfx-async-dropdown"
+    },
+    "homepage": "https://github.com/clarktozer/spfx-async-dropdown",
     "keywords": [
         "spfx",
         "react",
