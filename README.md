@@ -50,5 +50,5 @@ new PropertyPaneAsyncDropdown("list", {
 | selectedKey<br/>_(required)_      |             string or number              |
 | disabled                          |                  boolean                  |
 | required                          |                  boolean                  |
-| tooltip                           |                 IToolTip                  |
+| tooltip                           |                 IToolTip ({ content: string, iconName: string}). iconName is a [Fabric icon](https://developer.microsoft.com/en-us/fabric#/styles/web/icons)                 |
 | placeholder                       |                  boolean                  |
