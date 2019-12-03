@@ -10,6 +10,8 @@ Asynchronous drop down component for the SPFx property pane
 npm install spfx-async-dropdown
 ```
 
+## Examples
+
 ## Props
 
 | Prop                              |       Type       | <div style="width: 400px;">Description</div> |
