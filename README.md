@@ -13,9 +13,13 @@ Asynchronous dropdown component for the SPFx property pane
 npm install spfx-async-dropdown
 ```
 
+```bash
+import { PropertyPaneAsyncDropdown } from "spfx-async-dropdown"
+```
+
 ## Examples
 
-#### Get lists that are in the root web
+#### Get lists that are in the root web using [pnpjs](https://pnp.github.io/pnpjs/)
 
 ```bash
 new PropertyPaneAsyncDropdown("list", {
@@ -30,7 +34,10 @@ new PropertyPaneAsyncDropdown("list", {
         })
     },
     onPropertyChange: (property: string, newValue: any) => {
-        this.onPropertyPaneFieldChanged(property, this.properties.list, newValue);
+        const oldValue = get(this.properties, property);
+        update(this.properties, property, () => newValue);
+        this.onPropertyPaneFieldChanged(property, oldValue, newValue);
+        this.render();
     },
     selectedKey: this.properties.list,
     required: true,
