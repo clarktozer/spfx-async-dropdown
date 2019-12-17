@@ -23,6 +23,7 @@ export class PropertyPaneAsyncDropdown implements IPropertyPaneField<IPropertyPa
             required: properties.required,
             tooltip: properties.tooltip,
             placeholder: properties.placeholder,
+            description: properties.description,
             onRender: this.onRender
         };
     }
@@ -49,7 +50,8 @@ export class PropertyPaneAsyncDropdown implements IPropertyPaneField<IPropertyPa
             stateKey: new Date().toString(),
             required: this.properties.required,
             tooltip: this.properties.tooltip,
-            placeholder: this.properties.placeholder
+            placeholder: this.properties.placeholder,
+            description: this.properties.description
         });
 
         ReactDom.render(element, elem);

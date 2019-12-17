@@ -15,6 +15,7 @@ export interface IPropertyPaneAsyncDropdownProps {
     required?: boolean;
     tooltip?: IToolTip;
     placeholder?: string;
+    description?: string;
 }
 
 export interface IPropertyPaneAsyncDropdownInternalProps extends IPropertyPaneAsyncDropdownProps, IPropertyPaneCustomFieldProps {}

@@ -71,7 +71,9 @@ export default class PropertyPaneTestWebPart extends BaseClientSideWebPart<IProp
             onPropertyChange: this.onCustomPropertyChange,
             selectedKey: this.properties.list2,
             required: true,
-            disabled
+            disabled,
+            description:
+                "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua"
         });
 
         return {

@@ -3,6 +3,7 @@ import { Dropdown, IDropdownOption } from "office-ui-fabric-react/lib/Dropdown";
 import { Icon } from "office-ui-fabric-react/lib/Icon";
 import { Label } from "office-ui-fabric-react/lib/Label";
 import { Spinner } from "office-ui-fabric-react/lib/Spinner";
+import { Text } from "office-ui-fabric-react/lib/Text";
 import { TooltipHost } from "office-ui-fabric-react/lib/Tooltip";
 import React, { useEffect, useRef, useState } from "react";
 import { IToolTip } from "../models";
@@ -18,6 +19,7 @@ export interface IAsyncDropdownProps {
     required?: boolean;
     tooltip?: IToolTip;
     placeholder?: string;
+    description?: string;
 }
 
 export const AsyncDropdown: React.FC<IAsyncDropdownProps> = ({
@@ -29,7 +31,8 @@ export const AsyncDropdown: React.FC<IAsyncDropdownProps> = ({
     selectedKey,
     disabled,
     stateKey,
-    placeholder
+    placeholder,
+    description
 }) => {
     const id = useRef(getId("id"));
     const [isLoading, setLoading] = useState(false);
@@ -108,6 +111,7 @@ export const AsyncDropdown: React.FC<IAsyncDropdownProps> = ({
                 placeHolder={placeholder}
                 {...(isLoading ? { onRenderCaretDown: onRenderLoader } : {})}
             />
+            {description && <Text variant="xSmall">{description}</Text>}
             {error && <Label>Error while loading items: {error}</Label>}
         </div>
     );

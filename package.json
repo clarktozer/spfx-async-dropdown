@@ -1,7 +1,7 @@
 {
     "name": "spfx-async-dropdown",
     "description": "Asynchronous dropdown component for the SPFx property pane",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "license": "MIT",
     "main": "lib/index.js",
     "engines": {

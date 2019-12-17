@@ -45,7 +45,8 @@ new PropertyPaneAsyncDropdown("list", {
         content: "Testing Tooltip",
         iconName: "List"
     },
-    placeholder: "Select an item..."
+    placeholder: "Select an item...",
+    description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua"
 })
 ```
 
@@ -60,4 +61,5 @@ new PropertyPaneAsyncDropdown("list", {
 | disabled                          |                                                                   boolean                                                                    |
 | required                          |                                                                   boolean                                                                    |
 | tooltip                           | IToolTip ({ content: string, iconName: string}). iconName is a [Fabric icon](https://developer.microsoft.com/en-us/fabric#/styles/web/icons) |
-| placeholder                       |                                                                   boolean                                                                    |
+| placeholder                       |                                                                    string                                                                    |
+| description                       |                                                                    string                                                                    |
