@@ -1,7 +1,7 @@
 ## spfx-async-dropdown
 
-<span><img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/clarktozer/spfx-async-dropdown/Build"></span>
-<span><img alt="npm" src="https://img.shields.io/npm/v/spfx-async-dropdown"></span>
+![CI Status](https://img.shields.io/github/workflow/status/clarktozer/spfx-async-dropdown/Build)
+[![npm version](https://img.shields.io/npm/v/spfx-async-dropdown.svg)](https://www.npmjs.com/package/spfx-async-dropdown)
 
 Asynchronous dropdown component for the SPFx property pane
 
