@@ -22,6 +22,11 @@ export default class PropertyPaneTest extends React.Component<IPropertyPaneTestW
                             <span className={styles.title}>Selected Key: {this.props.list3}</span>
                         </div>
                     </div>
+                    <div className={styles.row}>
+                        <div className={styles.column}>
+                            <span className={styles.title}>Selected Key: {this.props.list4}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         );

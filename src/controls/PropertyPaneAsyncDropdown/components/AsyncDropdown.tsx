@@ -112,7 +112,11 @@ export const AsyncDropdown: React.FC<IAsyncDropdownProps> = ({
                 {...(isLoading ? { onRenderCaretDown: onRenderLoader } : {})}
             />
             {description && <Text variant="xSmall">{description}</Text>}
-            {error && <Label>Error while loading items: {error}</Label>}
+            {error && (
+                <Text className={styles.errorMessage} variant="xSmall">
+                    Error while loading items: {error}
+                </Text>
+            )}
         </div>
     );
 };

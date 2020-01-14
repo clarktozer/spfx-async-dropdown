@@ -11,6 +11,7 @@ export interface IPropertyPaneTestWebPartProps {
     list1: string;
     list2: string;
     list3: string;
+    list4: string;
 }
 
 export default class PropertyPaneTestWebPart extends BaseClientSideWebPart<IPropertyPaneTestWebPartProps> {
@@ -139,6 +140,16 @@ export default class PropertyPaneTestWebPart extends BaseClientSideWebPart<IProp
                                         content: "Testing Tooltip",
                                         iconName: "List"
                                     },
+                                    placeholder: "Select an option..."
+                                }),
+                                new PropertyPaneAsyncDropdown("list4", {
+                                    label: "List 4",
+                                    onLoad: () =>
+                                        new Promise((resolve, reject) => {
+                                            reject("Something wrong happened!");
+                                        }),
+                                    onPropertyChange: this.onCustomPropertyChange,
+                                    selectedKey: this.properties.list4,
                                     placeholder: "Select an option..."
                                 })
                             ]
