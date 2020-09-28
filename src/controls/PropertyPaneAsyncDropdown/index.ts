@@ -1,5 +1,5 @@
+import { IDropdownOption } from "@fluentui/react/lib/Dropdown";
 import { IPropertyPaneField, PropertyPaneFieldType } from "@microsoft/sp-property-pane";
-import { IDropdownOption } from "office-ui-fabric-react/lib/Dropdown";
 import * as React from "react";
 import * as ReactDom from "react-dom";
 import { AsyncDropdown, IAsyncDropdownProps } from "./components/AsyncDropdown";
@@ -24,7 +24,7 @@ export class PropertyPaneAsyncDropdown implements IPropertyPaneField<IPropertyPa
             tooltip: properties.tooltip,
             placeholder: properties.placeholder,
             description: properties.description,
-            onRender: this.onRender
+            onRender: this.onRender,
         };
     }
 
@@ -51,7 +51,7 @@ export class PropertyPaneAsyncDropdown implements IPropertyPaneField<IPropertyPa
             required: this.properties.required,
             tooltip: this.properties.tooltip,
             placeholder: this.properties.placeholder,
-            description: this.properties.description
+            description: this.properties.description,
         });
 
         ReactDom.render(element, elem);

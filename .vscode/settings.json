@@ -1,12 +1,11 @@
 {
-    "npm.enableScriptExplorer": true,
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
     },
     "editor.formatOnSave": true,
     "editor.detectIndentation": false,
     "editor.insertSpaces": true,
-    "editor.autoIndent": true,
+    "editor.autoIndent": "full",
     "javascript.implicitProjectConfig.checkJs": true,
     "typescript.tsdk": "node_modules\\typescript\\lib",
     "files.exclude": {

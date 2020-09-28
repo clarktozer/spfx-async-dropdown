@@ -1,10 +1,10 @@
-import { getId } from "@uifabric/utilities/lib/object";
-import { Dropdown, IDropdownOption } from "office-ui-fabric-react/lib/Dropdown";
-import { Icon } from "office-ui-fabric-react/lib/Icon";
-import { Label } from "office-ui-fabric-react/lib/Label";
-import { Spinner } from "office-ui-fabric-react/lib/Spinner";
-import { Text } from "office-ui-fabric-react/lib/Text";
-import { TooltipHost } from "office-ui-fabric-react/lib/Tooltip";
+import { Dropdown, IDropdownOption } from "@fluentui/react/lib/Dropdown";
+import { Icon } from "@fluentui/react/lib/Icon";
+import { Label } from "@fluentui/react/lib/Label";
+import { Spinner } from "@fluentui/react/lib/Spinner";
+import { Text } from "@fluentui/react/lib/Text";
+import { TooltipHost } from "@fluentui/react/lib/Tooltip";
+import { getId } from "@uifabric/utilities/lib/getId";
 import React, { useEffect, useRef, useState } from "react";
 import { IToolTip } from "../models";
 import styles from "./AsyncDropdown.module.scss";
@@ -32,7 +32,7 @@ export const AsyncDropdown: React.FC<IAsyncDropdownProps> = ({
     disabled,
     stateKey,
     placeholder,
-    description
+    description,
 }) => {
     const id = useRef(getId("id"));
     const [isLoading, setLoading] = useState(false);
@@ -58,16 +58,18 @@ export const AsyncDropdown: React.FC<IAsyncDropdownProps> = ({
     };
 
     const onOptionChanged = (event: React.FormEvent<HTMLDivElement>, option?: IDropdownOption, index?: number) => {
-        const selectedOptions: IDropdownOption[] = options.map(o => {
-            o.selected = o.key === option.key;
-            return o;
-        });
+        if (option) {
+            const selectedOptions: IDropdownOption[] = options.map(o => {
+                o.selected = o.key === option.key;
+                return o;
+            });
 
-        setOptions(selectedOptions);
-        setKey(option.key);
+            setOptions(selectedOptions);
+            setKey(option.key);
 
-        if (onChange) {
-            onChange(option, index);
+            if (onChange) {
+                onChange(option, index);
+            }
         }
     };
 
@@ -88,11 +90,14 @@ export const AsyncDropdown: React.FC<IAsyncDropdownProps> = ({
             {tooltip && (
                 <div className={styles.flexCenter}>
                     <Label required={required}>{label}</Label>
-                    <div className={styles.tooltip}>
+                    <div className={styles.tooltipContainer}>
                         <TooltipHost
+                            styles={{
+                                root: styles.tooltip,
+                            }}
                             content={tooltip.content}
                             calloutProps={{
-                                target: `#${id.current}`
+                                target: `#${id.current}`,
                             }}
                         >
                             <Icon id={id.current} iconName={tooltip.iconName || "Info"} />

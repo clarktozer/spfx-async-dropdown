@@ -1,6 +1,6 @@
-import { Version } from "@microsoft/sp-core-library";
 import { get, isEmpty, update } from "@microsoft/sp-lodash-subset";
-import { BaseClientSideWebPart, IPropertyPaneConfiguration } from "@microsoft/sp-webpart-base";
+import { IPropertyPaneConfiguration } from "@microsoft/sp-property-pane";
+import { BaseClientSideWebPart } from "@microsoft/sp-webpart-base";
 import { IDropdownOption } from "office-ui-fabric-react/lib/Dropdown";
 import * as React from "react";
 import * as ReactDom from "react-dom";
@@ -25,10 +25,6 @@ export default class PropertyPaneTestWebPart extends BaseClientSideWebPart<IProp
 
     protected onDispose(): void {
         ReactDom.unmountComponentAtNode(this.domElement);
-    }
-
-    protected get dataVersion(): Version {
-        return Version.parse("1.0");
     }
 
     public onCustomPropertyChange = (property: string, newValue: any) => {
@@ -58,23 +54,23 @@ export default class PropertyPaneTestWebPart extends BaseClientSideWebPart<IProp
                 Promise.resolve<IDropdownOption[]>([
                     {
                         key: "Test1",
-                        text: "Test1"
+                        text: "Test1",
                     },
                     {
                         key: "Test2",
-                        text: "Test2"
+                        text: "Test2",
                     },
                     {
                         key: "Test3",
-                        text: "Test3"
-                    }
+                        text: "Test3",
+                    },
                 ]),
             onPropertyChange: this.onCustomPropertyChange,
             selectedKey: this.properties.list2,
             required: true,
             disabled,
             description:
-                "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua"
+                "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua",
         });
 
         return {
@@ -91,20 +87,20 @@ export default class PropertyPaneTestWebPart extends BaseClientSideWebPart<IProp
                                                 resolve([
                                                     {
                                                         key: "",
-                                                        text: "Select an item"
+                                                        text: "Select an item",
                                                     },
                                                     {
                                                         key: "Test1",
-                                                        text: "Test1"
+                                                        text: "Test1",
                                                     },
                                                     {
                                                         key: "Test2",
-                                                        text: "Test2"
+                                                        text: "Test2",
                                                     },
                                                     {
                                                         key: "Test3",
-                                                        text: "Test3"
-                                                    }
+                                                        text: "Test3",
+                                                    },
                                                 ]);
                                             }, 1000);
                                         });
@@ -113,8 +109,8 @@ export default class PropertyPaneTestWebPart extends BaseClientSideWebPart<IProp
                                     selectedKey: this.properties.list1 || "",
                                     required: true,
                                     tooltip: {
-                                        content: "Testing Tooltip"
-                                    }
+                                        content: "Testing Tooltip",
+                                    },
                                 }),
                                 this.listPicker,
                                 new PropertyPaneAsyncDropdown("list3", {
@@ -123,24 +119,24 @@ export default class PropertyPaneTestWebPart extends BaseClientSideWebPart<IProp
                                         Promise.resolve<IDropdownOption[]>([
                                             {
                                                 key: "Test1",
-                                                text: "Test1"
+                                                text: "Test1",
                                             },
                                             {
                                                 key: "Test2",
-                                                text: "Test2"
+                                                text: "Test2",
                                             },
                                             {
                                                 key: "Test3",
-                                                text: "Test3"
-                                            }
+                                                text: "Test3",
+                                            },
                                         ]),
                                     onPropertyChange: this.onCustomPropertyChange,
                                     selectedKey: this.properties.list3,
                                     tooltip: {
                                         content: "Testing Tooltip",
-                                        iconName: "List"
+                                        iconName: "List",
                                     },
-                                    placeholder: "Select an option..."
+                                    placeholder: "Select an option...",
                                 }),
                                 new PropertyPaneAsyncDropdown("list4", {
                                     label: "List 4",
@@ -150,13 +146,13 @@ export default class PropertyPaneTestWebPart extends BaseClientSideWebPart<IProp
                                         }),
                                     onPropertyChange: this.onCustomPropertyChange,
                                     selectedKey: this.properties.list4,
-                                    placeholder: "Select an option..."
-                                })
-                            ]
-                        }
-                    ]
-                }
-            ]
+                                    placeholder: "Select an option...",
+                                }),
+                            ],
+                        },
+                    ],
+                },
+            ],
         };
     }
 }
